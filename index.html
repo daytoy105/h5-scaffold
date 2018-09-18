@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title> </title>
+  <script src="js/flexible.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/public.css" />
+  <link rel="stylesheet" type="text/css" href="css/zepto.fullpage.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script src="js/zepto.min.js"></script>
+  <script src="js/zepto_getScript.js"></script>
+  <script src="js/zepto.fullpage.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0a39dad4b9904208d1ee04a8fb0d9fa5";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+
+<body>
+  <div class="wp">
+    <div class="wp-inner">
+      <div class="page page1">
+        <div class="cont">
+        </div>
+      </div>
+      <div class="page page2">
+        <div class="cont">
+        </div>
+      </div>
+      <div class="page page3">
+        <div class="cont">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    console.log('ee')
+  $('.wp-inner').fullpage({
+    page: '.page',
+    start: 0,
+    duration: 500,
+    drag: false,
+    loop: false,
+    dir: 'v',
+    change: function(e) {},
+    beforeChange: function(e) {
+      $('.wp-inner').children('div').eq(e.next).children('.cont').show();
+    },
+    afterChange: function(e) {
+      after_curpage = e.cur;
+      for (var i = 0; i < $('.wp-inner .page').length; i++) {
+        if (i != e.cur) {
+          $('.wp-inner .page').eq(i).children('.cont').hide();
+        }
+      }
+    }
+  });
+  // var wx_share_info = {
+  //   'title': 'xxx',
+  //   'desc': 'xx',
+  //   'link': 'xxx',
+  //   'img': "xxx",
+  // };
+  // var url = window.location.href;
+  // var url_share = "http://wx.yerhu.com/ting/jssdk_365i/ajax.php?url=" + encodeURIComponent(url);
+  // $.getScript(url_share, function() {
+  //   // 微信分享接口绑定。
+  //   wx_token = wxSignPackage.data;
+  //   debug = false;
+  //   if (location.href.match(/debug/)) {
+  //     debug = true;
+  //   }
+  //   wx.config({
+  //     debug: debug,
+  //     appId: wx_token.appId,
+  //     timestamp: wx_token.timestamp,
+  //     nonceStr: wx_token.nonceStr,
+  //     signature: wx_token.signature,
+  //     jsApiList: [
+  //       'checkJsApi',
+  //       'onMenuShareTimeline',
+  //       'onMenuShareAppMessage'
+  //     ]
+  //   });
+  // });
+  // /* 绑定分享事件 */
+  // function initWxEvent() {
+  //   //分享给朋友
+  //   wx.onMenuShareAppMessage({
+  //     title: wx_share_info.title,
+  //     desc: wx_share_info.desc,
+  //     link: wx_share_info.link,
+  //     imgUrl: wx_share_info.img,
+  //     trigger: function(res) {},
+  //     success: function(res) {
+  //       actAnalyse.share(1);
+  //     },
+  //     cancel: function(res) {},
+  //     fail: function(res) {}
+  //   });
+
+  //   //分享到朋友圈
+  //   wx.onMenuShareTimeline({
+  //     title: wx_share_info.title,
+  //     desc: wx_share_info.desc,
+  //     link: wx_share_info.link,
+  //     imgUrl: wx_share_info.img,
+  //     trigger: function(res) {},
+  //     success: function(res) {
+  //       actAnalyse.share(2);
+  //     },
+  //     cancel: function(res) {},
+  //     fail: function(res) {}
+  //   });
+  // }
+
+  // bindEvent = false;
+  // wx.ready(function() {
+  //   bindEvent = true;
+  //   initWxEvent();
+  // });
+  </script>
+</body>
+
+</html>
